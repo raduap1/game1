@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class BounceScript : MonoBehaviour
 {
@@ -9,6 +9,10 @@ public class BounceScript : MonoBehaviour
     private float startY;
 
     private Rigidbody2D rb;
+
+
+    public TMP_Text scoreText;
+    private int score;
 
 
     // Start is called before the first frame update
@@ -23,7 +27,7 @@ public class BounceScript : MonoBehaviour
     //  void Update()
     void Update()
     {
-        Debug.Log("Update: ============== ");
+        // Debug.Log("Update: ============== ");
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -35,7 +39,7 @@ public class BounceScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        Debug.Log("FixedUpdate: +++++++++++++++++ ");
+        // Debug.Log("FixedUpdate: +++++++++++++++++ ");
 
 
     }
@@ -44,5 +48,12 @@ public class BounceScript : MonoBehaviour
     {
         //rb.MovePosition(d);
         rb.AddForce(transform.up * 600f);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        this.score++;
+        scoreText.text = score.ToString();
+        Debug.Log("trigger " + score);
     }
 }

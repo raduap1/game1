@@ -72,6 +72,12 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Exluding all subfolders that are in the [Aa]ssets folder except Prefabs, Scenes and Scripts
+[Aa]ssets/*
+![Aa]ssets/Prefabs
+![Aa]ssets/Scenes
+![Aa]ssets/Scripts
+
 #Vs Code
 .vscode/*
 # Local History for Visual Studio Code
